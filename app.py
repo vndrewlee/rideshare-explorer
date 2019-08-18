@@ -12,8 +12,8 @@ def get_index():
 @app.route('/api/dropoffs/<int:start>/<int:end>')
 def rides(start, end):
     start, end = (start*1000000, end*1000000)
-    time_filter = df.completed_on.astype(int).between(start, end)
     df = get_df()
+    time_filter = df.completed_on.astype(int).between(start, end)
     result = (
         df[time_filter]
         .groupby(['end_location_lat', 'end_location_long'])
