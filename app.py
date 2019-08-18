@@ -1,8 +1,7 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, g
 import pandas as pd
 
 app = Flask("app", static_folder='build/', static_url_path='')
-df = pd.read_parquet('./RideAustin_Weather.parquet')
 
 
 @app.route('/')
@@ -14,6 +13,7 @@ def get_index():
 def rides(start, end):
     start, end = (start*1000000, end*1000000)
     time_filter = df.completed_on.astype(int).between(start, end)
+    df = get_df()
     result = (
         df[time_filter]
         .groupby(['end_location_lat', 'end_location_long'])
@@ -24,3 +24,11 @@ def rides(start, end):
     )
 
     return jsonify(result)
+
+
+def get_df():
+    if 'df' not in g:
+        g.df = pd.read_parquet('./RideAustin_Weather.parquet')
+
+    return g.df
+
