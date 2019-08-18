@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Map, Popup, Rectangle, TileLayer} from "react-leaflet";
 import {interpolateViridis} from "d3-scale-chromatic";
-import {scaleLinear, scaleLog} from "d3-scale";
+import {scaleLog} from "d3-scale";
 
 function ResultMap(props) {
 
@@ -24,7 +24,7 @@ function ResultMap(props) {
       setMax(Math.max(...dropoffCounts));
       const scale = scaleLog().domain([min, max]).range([0,1]);
       setScale(()=>scale);
-  }, [data]);
+  }, [data, min, max]);
 
   return (
     <Map center={[30.2672, -97.7431]} zoom={10} id={"map1"}>
