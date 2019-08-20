@@ -38,7 +38,7 @@ function ResultMap(props) {
           key={String(datum.end_location_lat) + String(datum.end_location_long)}
           fillColor={interpolateViridis(scale(datum.dropoff_count))}
           fillOpacity={0.5}
-          color={"white"}
+          color={interpolateViridis(scale(datum.dropoff_count))}
           opacity={0.3}
           weight={1}
         >
