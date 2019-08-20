@@ -1,5 +1,9 @@
+import os
+from datetime import datetime
 from flask import Flask, jsonify, g
-import pandas as pd
+
+import psycopg2
+from psycopg2.extras import RealDictCursor
 
 app = Flask("app", static_folder='build/', static_url_path='')
 
@@ -10,25 +14,45 @@ def get_index():
 
 
 @app.route('/api/dropoffs/<int:start>/<int:end>')
-def rides(start, end):
-    start, end = (start*1000000, end*1000000)
-    df = get_df()
-    time_filter = df.completed_on.astype(int).between(start, end)
-    result = (
-        df[time_filter]
-        .groupby(['end_location_lat', 'end_location_long'])
-        .size()
-        .to_frame('dropoff_count')
-        .reset_index().reset_index()
-        .to_dict('records')
-    )
+def get_rides(start, end):
+    ms_per_second = 1000
+    start_param = datetime.fromtimestamp(start / ms_per_second)
+    end_param = datetime.fromtimestamp(end / ms_per_second)
 
-    return jsonify(result)
+    query = """
+        select 
+            end_location_lat, end_location_long, sum(1) as dropoff_count
+        from rides 
+        where completed_on >= (%s)
+        and completed_on <= (%s)
+        group by end_location_lat, end_location_long;
+    """
+    conn = get_conn()
+    cur = conn.cursor(cursor_factory=RealDictCursor)
+    cur.execute(query, (start_param, end_param))
+    response = cur.fetchall()
+
+    return jsonify(response)
 
 
-def get_df():
-    if 'df' not in g:
-        g.df = pd.read_parquet('./RideAustin_Weather.parquet')
+def get_conn():
+    if 'conn' not in g:
+        db_user = os.environ['DB_USER']
+        db_password = os.environ['DB_PASSWORD']
+        db_host = os.environ['DB_HOST']
+        g.conn = psycopg2.connect(
+            f"""
+                dbname='postgres' 
+                user='{db_user}' 
+                host='{db_host}' 
+                password='{db_password}'
+            """
+        )
 
-    return g.df
+    return g.conn
 
+
+@app.teardown_appcontext
+def teardown_db(error):
+    if hasattr(g, 'conn'):
+        g.conn.close()
