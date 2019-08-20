@@ -27,7 +27,7 @@ const ridesSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
   usermeta: {embedOptions: {actions: false}},
   "transform": [
-    {"calculate": "timeFormat(datum.timestamp, '%Y-%d-%m %I:00 %p')", "as": "datetime"}
+    {"calculate": "timeFormat(datum.timestamp, '%Y-%m-%d %I:00 %p')", "as": "datetime"}
   ],
   config: config,
   layer: [
@@ -55,7 +55,7 @@ const distanceSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
   usermeta: {embedOptions: {actions: false}},
   "transform": [
-    {"calculate": "timeFormat(datum.timestamp, '%Y-%d-%m %I:00 %p')", "as": "datetime"},
+    {"calculate": "timeFormat(datum.timestamp, '%Y-%m-%d %I:00 %p')", "as": "datetime"},
 
   ],
   config: config,
