@@ -45,8 +45,8 @@ const ridesSpec = {
       axis: {format: "s"}
     },
     tooltip: [
-      {field: "datetime", type: "nominal"},
-      {field: "rides", type: "quantitative", format: ".3s"},
+      {field: "datetime", type: "nominal", title: "Period Beginning"},
+      {field: "rides", type: "quantitative", format: ".3s", title: "Rides Completed"},
     ]
   }
 };
@@ -55,7 +55,8 @@ const distanceSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
   usermeta: {embedOptions: {actions: false}},
   "transform": [
-    {"calculate": "timeFormat(datum.timestamp, '%Y-%d-%m %I:00 %p')", "as": "datetime"}
+    {"calculate": "timeFormat(datum.timestamp, '%Y-%d-%m %I:00 %p')", "as": "datetime"},
+
   ],
   config: config,
   layer: [
@@ -73,8 +74,8 @@ const distanceSpec = {
       axis: {format: "s"}
     },
     tooltip: [
-      {field: "datetime", type: "nominal"},
-      {field: "distance", type: "quantitative", format: ".3s"},
+      {field: "datetime", type: "nominal", title: "Period Beginning"},
+      {field: "distance", type: "quantitative", format: ".3s", title: "Miles Driven"},
     ]
   }
 };
