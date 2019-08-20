@@ -83,16 +83,16 @@ function App() {
       <hr/>
       <Row>
         <Col>
-          <h3>Rides</h3>
+          <h3>Rides Completed</h3>
           <VegaLite spec={ridesSpec} data={{values: filteredData}} tooltip={new Handler().call}/>
         </Col>
         <Col>
-          <h3>Miles</h3>
+          <h3>Miles Driven</h3>
           <VegaLite spec={distanceSpec} data={{values: filteredData}} tooltip={new Handler().call}/>
         </Col>
       </Row>
       <br/>
-      <h3>Dropoff Locations</h3>
+      <h3>Dropoff Distribution</h3>
       <ResultMap start={min} end={max}/>
       <hr/>
       <p>
@@ -103,6 +103,6 @@ function App() {
   );
 }
 
-const formatTime = timeFormat("%Y-%d-%m %I:00 %p");
+const formatTime = timeFormat("%Y-%m-%d %I:00 %p");
 
 export default App;
