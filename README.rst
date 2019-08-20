@@ -8,6 +8,7 @@ A demo app visualizing a public rideshare dataset of ~900K trips in the city of 
 * Database_: PostgreSQL
 
 .. image:: https://raw.githubusercontent.com/vndrewlee/rideshare-explorer/master/docs/preview.png
+    :target: https://intense-chamber-62494.herokuapp.com
 
 .. _Frontend: https://github.com/vndrewlee/rideshare-explorer/tree/master/src
 .. _Server: https://github.com/vndrewlee/rideshare-explorer/blob/master/app.py
