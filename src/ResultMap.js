@@ -47,7 +47,6 @@ function ResultMap(props) {
           </Popup>
         </Rectangle>
       })}
-      <Popup position={[30.2,-97.67]}>Dropoffs: 50,778</Popup>
     </Map>
   )
 }
