@@ -61,7 +61,7 @@ const distanceSpec = {
   usermeta: {embedOptions: {actions: false}},
   "transform": [
     {"calculate": "timeFormat(datum.timestamp, '%Y-%m-%d %I:00 %p')", "as": "datetime"},
-
+    {"calculate": "datum.distance/1000", "as": "kilometers"},
   ],
   config: config,
   layer: [
@@ -74,13 +74,13 @@ const distanceSpec = {
       type: "temporal",
     },
     "y": {
-      "field": "distance",
+      "field": "kilometers",
       "type": "quantitative",
       axis: {format: "s"}
     },
     tooltip: [
       {field: "datetime", type: "nominal", title: "Period Beginning"},
-      {field: "distance", type: "quantitative", format: ".3s", title: "Miles Driven"},
+      {field: "kilometers", type: "quantitative", format: ".3s", title: "km Driven"},
     ]
   }
 };

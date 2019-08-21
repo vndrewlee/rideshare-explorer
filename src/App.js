@@ -87,7 +87,7 @@ function App() {
           <VegaLite spec={ridesSpec} data={{values: filteredData}} tooltip={new Handler().call}/>
         </Col>
         <Col sm={12} lg={6}>
-          <h3>Miles Driven</h3>
+          <h3>Kilometers Driven</h3>
           <VegaLite spec={distanceSpec} data={{values: filteredData}} tooltip={new Handler().call}/>
         </Col>
       </Row>
