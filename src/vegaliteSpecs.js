@@ -1,6 +1,11 @@
 const config = {
+  autosize: {
+    type: "pad",
+    resize: true,
+    contains: "padding"
+  },
   view: {
-    continuousWidth: 400,
+    continuousWidth: 450,
     stroke: "transparent"
   },
   line: {
