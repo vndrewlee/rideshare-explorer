@@ -48,7 +48,7 @@ function App() {
       <a href={"https://data.world/andytryba/rideaustin"}>Data Source</a>
       <hr/>
       <Row>
-        <Col>
+        <Col sm={12} lg={6}>
           <h3>Date Range</h3>
           <Row>
             <Col><p align={"left"}>
@@ -72,7 +72,7 @@ function App() {
             }}
           />
         </Col>
-        <Col>
+        <Col sm={12} lg={6}>
           <h3>Resolution</h3>
           <ResolutionInput
             selection={resolution}
@@ -82,11 +82,11 @@ function App() {
       </Row>
       <hr/>
       <Row>
-        <Col>
+        <Col sm={12} lg={6}>
           <h3>Rides Completed</h3>
           <VegaLite spec={ridesSpec} data={{values: filteredData}} tooltip={new Handler().call}/>
         </Col>
-        <Col>
+        <Col sm={12} lg={6}>
           <h3>Miles Driven</h3>
           <VegaLite spec={distanceSpec} data={{values: filteredData}} tooltip={new Handler().call}/>
         </Col>
