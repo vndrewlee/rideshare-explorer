@@ -47,10 +47,18 @@ function App() {
         A dataset of ~900K ride share trips in the city of Austin, TX from May
         2016 to Feb 2017.
       </p>
-      <a href={"https://www.vndrewlee.com/rideshareexplorer/"}>
-        Project Details
-      </a>
-      <a href={"https://data.world/andytryba/rideaustin"}>Data Source</a>
+      <p>
+        <ul>
+          <li>
+            <a href={"https://www.vndrewlee.com/rideshareexplorer/"}>
+              Implementation Details
+            </a>
+          </li>
+          <li>
+            <a href={"https://data.world/andytryba/rideaustin"}>Data Source</a>
+          </li>
+        </ul>
+      </p>
       <hr />
       <Row>
         <Col sm={12} lg={6}>
