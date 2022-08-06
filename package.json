@@ -12,7 +12,7 @@
     "react-datetime-slider": "^1.0.0",
     "react-dom": "^16.8.6",
     "react-leaflet": "^2.4.0",
-    "react-scripts": "^3.4.4",
+    "react-scripts": "^5.0.1",
     "react-vega": "^6.1.0",
     "react-vega-lite": "^6.1.0",
     "vega": "^5.4.0",
