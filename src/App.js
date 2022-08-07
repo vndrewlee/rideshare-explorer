@@ -20,7 +20,7 @@ import { ridesSpec, distanceSpec } from "./vegaliteSpecs";
 function App() {
   const [resolution, setResolution] = useState("week");
   const [data, setData] = useState(timeseries[resolution]);
-  const [filteredData, setFilteredData] = useState([]);
+  const [filteredData, setFilteredData] = useState(data);
   const [min, setMin] = useState(1465014900000);
   const [max, setMax] = useState(1486857600000);
   const [displayMin, setDisplayMin] = useState(1465014900000);
