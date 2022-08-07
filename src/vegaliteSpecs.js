@@ -25,7 +25,8 @@ const config = {
     gridOpacity: 0.1,
     labelColor: "white",
     title: null
-  }
+  },
+  "background": null
 };
 
 const ridesSpec = {
@@ -53,7 +54,8 @@ const ridesSpec = {
       {field: "datetime", type: "nominal", title: "Period Beginning"},
       {field: "rides", type: "quantitative", format: ".3s", title: "Rides Completed"},
     ]
-  }
+  },
+  data: {name: 'values'}
 };
 
 const distanceSpec = {
@@ -82,7 +84,8 @@ const distanceSpec = {
       {field: "datetime", type: "nominal", title: "Period Beginning"},
       {field: "kilometers", type: "quantitative", format: ".3s", title: "km Driven"},
     ]
-  }
+  },
+  data: {name: 'values'}
 };
 
 export {ridesSpec, distanceSpec};
