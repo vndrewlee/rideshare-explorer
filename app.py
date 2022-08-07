@@ -42,7 +42,7 @@ def get_conn():
         db_host = os.environ['DB_HOST']
         g.conn = psycopg2.connect(
             f"""
-                dbname='postgres' 
+                dbname='main' 
                 user='{db_user}' 
                 host='{db_host}' 
                 password='{db_password}'
