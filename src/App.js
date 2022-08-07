@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import VegaLite from "react-vega";
+import { VegaLite } from 'react-vega'
 import { Handler } from "vega-tooltip";
 
 import { Range } from "rc-slider";
@@ -47,7 +47,7 @@ function App() {
         A dataset of ~900K ride share trips in the city of Austin, TX from May
         2016 to Feb 2017.
       </p>
-      <p>
+      <span>
         <ul>
           <li>
             <a href={"https://www.vndrewlee.com/rideshareexplorer/"}>
@@ -58,7 +58,7 @@ function App() {
             <a href={"https://data.world/andytryba/rideaustin"}>Data Source</a>
           </li>
         </ul>
-      </p>
+      </span>
       <hr />
       <Row>
         <Col sm={12} lg={6}>
