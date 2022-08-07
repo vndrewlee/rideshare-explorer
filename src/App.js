@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import VegaLite from "react-vega-lite";
+import VegaLite from "react-vega";
 import { Handler } from "vega-tooltip";
 
 import { Range } from "rc-slider";
